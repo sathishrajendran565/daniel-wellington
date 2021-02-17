@@ -1,0 +1,26 @@
+service: movies-service
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-northeast-1
+
+functions:
+  getMoviesByGenre:
+    handler: src/movies.getMoviesByGenre
+    events:
+      - http:
+          path: movies/{genre}
+          method: get
+    environment:
+      MOVIE_DB_BASE_URL: https://api.themoviedb.org/3
+      MOVIE_API_KEY: 2e9df4bcdbaf8e37d731dd84486d7bb6
+      MOVIE_LANGUAGE: en-US
+      MOVIE_DEFAULT_PAGES: 1
+
+
+plugins:
+  - serverless-plugin-webpack
+  - serverless-offline
+  - serverless-mocha-plugin
+  
