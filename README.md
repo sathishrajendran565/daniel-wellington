@@ -16,10 +16,13 @@ npm install
 
 ## To run the code 
 
-Run serverless offline 
+serverless offline 
 
 serverless offline to access the end point 
 - http://localhost:3000/dev/movies/{genre} 
 - params - {genre} - values could be one among the below mentioned values
 - ["Comedy", "Action", "War" ]
 
+## To run the test 
+
+sls invoke test
